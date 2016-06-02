@@ -24,6 +24,8 @@
     
     NSArray *wordArray = @[@"Q", @"U", @"I", @"E", @"T"];
     
+    //Setting the value to "0" provides something for the "+=" to add and sum with.
+    //Without setting the value, the sum given is nonsensical.
     NSInteger wordSum = 0;
     NSNumber *value;
     NSMutableArray *values = [NSMutableArray new];
@@ -34,6 +36,7 @@
     {
         if ([wordArray objectAtIndex:i] !=nil)
         {
+            //Retrieves the value for each letter in the wordArray and places the numbers in another array.
             value = [dict valueForKey:[wordArray objectAtIndex:i]];
             [values addObject:value];
         }
@@ -41,8 +44,10 @@
     
     NSLog(@"VALUES: %@", values);
     
+    //Each letter value in the array is separated
     for (NSNumber *num in values)
     {
+        //Each value is added together
         wordSum += [num integerValue];
     }
     
